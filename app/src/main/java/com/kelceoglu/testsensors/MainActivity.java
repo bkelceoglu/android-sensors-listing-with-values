@@ -6,7 +6,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -42,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
     public void displaySensors(List<Sensor> s) {
         SensorAdapter sensorAdapter = new SensorAdapter(this, R.layout.testlayout, s);
         ListView lv = (ListView) findViewById(R.id.sensorListView);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("CLICK", String.valueOf(id));
+                Intent i = new Intent(MainActivity.this, SingleSensorActivity.class);
+                i.putExtra("SENSOR_ID", String.valueOf(id));
+                startActivity(i);
+            }
+        });
         lv.setAdapter(sensorAdapter);
     }
 

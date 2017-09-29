@@ -7,6 +7,8 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -40,7 +42,6 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         List<Sensor> sl = (sensorManager.getSensorList(Sensor.TYPE_ALL));
         List<SensorValuesPojo> sensorValuesPojos = new ArrayList<>();
         for (Sensor s : sl) {
-            // 0.00 as initial value
             sensorValuesPojos.add(new SensorValuesPojo(s.getName(), values));
         }
         ListView lv = (ListView) findViewById(R.id.listOfSensors);
@@ -51,11 +52,12 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        // TODO: correct this as single value
         this.createList(Arrays.toString(event.values));
         // Toast.makeText(this, "Sensor Changed"  + Arrays.toString(event.values), Toast.LENGTH_SHORT).show();
         Log.d(Arrays.toString(event.values), String.valueOf(i++));
     }
-    
+
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 

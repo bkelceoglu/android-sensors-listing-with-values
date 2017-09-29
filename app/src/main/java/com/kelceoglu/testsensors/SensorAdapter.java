@@ -3,6 +3,9 @@ package com.kelceoglu.testsensors;
 import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +32,7 @@ public class SensorAdapter  extends ArrayAdapter<Sensor> {
     }
 
     //called when rendering the list
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public View getView(int position, View convertView, ViewGroup parent) {
 
         //get the Sensor we are displaying
