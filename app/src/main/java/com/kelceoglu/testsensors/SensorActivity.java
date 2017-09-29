@@ -21,7 +21,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
-        this.createList();
+        this.createList("0.00");
         this.registerSensors();
     }
 
@@ -35,13 +35,13 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         }
     }
 
-    private void createList() {
+    private void createList(String values) {
         SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         List<Sensor> sl = (sensorManager.getSensorList(Sensor.TYPE_ALL));
         List<SensorValuesPojo> sensorValuesPojos = new ArrayList<>();
         for (Sensor s : sl) {
             // 0.00 as initial value
-            sensorValuesPojos.add(new SensorValuesPojo(s.getName(), "0.00"));
+            sensorValuesPojos.add(new SensorValuesPojo(s.getName(), values));
         }
         ListView lv = (ListView) findViewById(R.id.listOfSensors);
         SensorActivityAdapter saa = new SensorActivityAdapter(this, R.layout.sensordisplay, sensorValuesPojos);
@@ -51,11 +51,11 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-
-        Toast.makeText(this, "Sensor Changed"  + Arrays.toString(event.values), Toast.LENGTH_SHORT).show();
-        Log.d("LOG: ", String.valueOf(i++));
+        this.createList(Arrays.toString(event.values));
+        // Toast.makeText(this, "Sensor Changed"  + Arrays.toString(event.values), Toast.LENGTH_SHORT).show();
+        Log.d(Arrays.toString(event.values), String.valueOf(i++));
     }
-
+    
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
