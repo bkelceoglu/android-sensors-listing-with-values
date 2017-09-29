@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderlan">
+
+
+        <TextView
+            android:id="@+id/sensorNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="21dp"
+            android:text="Text" />
+
+        <TextView
+            android:id="@+id/currentValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/sensorNameText"
+            android:layout_below="@+id/sensorNameText"
+            android:layout_marginTop="30dp"
+            android:text="TextView" />
+    </RelativeLayout>
+</LinearLayout>

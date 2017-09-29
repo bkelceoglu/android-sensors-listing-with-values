@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Test Sensors</string>
+    <string name="number_of_sensors">Number of Sensors:</string>
+    <string name="goto_sensor_activity">Goto Sensor Activity</string>
+    <string name="sensor_name">Sensor Name:</string>
+    <string name="textview">TextView</string>
+    <string name="range">Range:</string>
+    <string name="resolution">Resolution:</string>
+
+</resources>
