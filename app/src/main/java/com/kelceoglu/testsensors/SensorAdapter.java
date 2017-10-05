@@ -5,7 +5,6 @@ import android.content.Context;
 import android.hardware.Sensor;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ import java.util.List;
  * Created by caveman on 9/27/17.
  */
 
-public class SensorAdapter  extends ArrayAdapter<Sensor> {
+public class SensorAdapter extends ArrayAdapter<Sensor> {
 
     private Context context;
     private List<Sensor> sensorList;

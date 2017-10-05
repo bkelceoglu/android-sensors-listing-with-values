@@ -5,9 +5,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import java.util.Arrays;
@@ -18,6 +17,7 @@ public class SingleSensorActivity extends AppCompatActivity implements SensorEve
     private String sensor_id;
     SensorManager sensorManager;
     Long lastUpdate = 0L;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +32,7 @@ public class SingleSensorActivity extends AppCompatActivity implements SensorEve
         t.setText(localSensor.getName());
     }
 
-    private void registerSensor (Sensor s) {
+    private void registerSensor(Sensor s) {
         sensorManager.registerListener(this, s, sensorManager.SENSOR_DELAY_NORMAL);
     }
 
@@ -40,7 +40,7 @@ public class SingleSensorActivity extends AppCompatActivity implements SensorEve
     public void onSensorChanged(SensorEvent event) {
         TextView t = (TextView) findViewById(R.id.singleSensorValues);
         Long readTime = event.timestamp;
-        if (readTime - lastUpdate > 500000000*2) {
+        if (readTime - lastUpdate > 500000000 * 2) {
             t.setText(Arrays.toString(event.values));
             lastUpdate = readTime;
         }

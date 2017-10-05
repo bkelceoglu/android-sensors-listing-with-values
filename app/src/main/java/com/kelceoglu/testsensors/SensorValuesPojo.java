@@ -1,7 +1,5 @@
 package com.kelceoglu.testsensors;
 
-import java.util.List;
-
 /**
  * Created by caveman on 9/29/17.
  */

@@ -4,8 +4,8 @@ package com.kelceoglu.testsensors;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Sensor> sensors;
     SensorManager sensorManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public void numberOfSensors() {
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensors = (sensorManager.getSensorList(Sensor.TYPE_ALL));
-        if (! sensors.isEmpty()) {
+        if (!sensors.isEmpty()) {
             TextView t = (TextView) findViewById(R.id.numberOfSensors);
             t.setText(String.valueOf(sensors.size()));
             displaySensors(sensors);
